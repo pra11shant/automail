@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include automail *.css
+recursive-include automail *.csv
+recursive-include automail *.html
+recursive-include automail *.ico
+recursive-include automail *.js
+recursive-include automail *.json
+recursive-include automail *.md
+recursive-include automail *.png
+recursive-include automail *.py
+recursive-include automail *.svg
+recursive-include automail *.txt
+recursive-exclude automail *.pyc
