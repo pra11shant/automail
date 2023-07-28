@@ -109,27 +109,34 @@ app_license = "MIT"
 #		"on_trash": "method"
 #	}
 # }
+fixtures = [
+            {"doctype": "Custom Field",
+        	"filters": [
+            [
+                "name",
+                "in",
+                [
+                    "Auto Email Report-set_time",
+					"Auto Email Report-cron_time",
+                    ]
+			]
+			]},
+]
 
 # Scheduled Tasks
-# ---------------
-
-# scheduler_events = {
-#	"all": [
-#		"automail.tasks.all"
-#	],
-#	"daily": [
-#		"automail.tasks.daily"
-#	],
-#	"hourly": [
-#		"automail.tasks.hourly"
-#	],
-#	"weekly": [
-#		"automail.tasks.weekly"
-#	],
-#	"monthly": [
-#		"automail.tasks.monthly"
-#	],
-# }
+# # ---------------
+# from automail.api.auto_email import get_time
+# cron_string = get_time()
+scheduler_events = {
+    # "cron": {
+	# 	#   cron_string: [
+    #     #     "automail.api.auto_email.schedule_email",
+    #     #     ]
+    # },
+    "hourly": [
+		"automail.api.automail.send_hourly",
+	],
+}
 
 # Testing
 # -------

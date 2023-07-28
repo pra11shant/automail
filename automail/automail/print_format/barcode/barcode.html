@@ -1,0 +1,10 @@
+{%set style           = "automail/templates/includes/style.css" %}
+
+<style> {%- include style -%} </style>  
+
+
+<div class="barcode-area">
+    <!-- insert your custom barcode setting your data in the GET parameter "data" -->
+    <img alt='Barcode {{doc.name}}'
+         src='https://barcode.tec-it.com/barcode.ashx?data={{doc.name}}&code=Code93&imagetype=Svg'/>
+</div>
