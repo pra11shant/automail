@@ -4,3 +4,248 @@
         width:150px; 
         padding:1px;
     }
+
+    /*Logo Setting*/
+
+.line{
+    outline: 1px solid black;
+    border-collapse: collapse;
+    border-width: thin;
+}
+.b-line{
+    border-bottom:1px solid black;
+    border-collapse: collapse;
+    border-width: thin;
+}
+.r-line{
+    border-right:1px solid black;
+    border-collapse: collapse;
+    border-width: thin;
+}
+
+.l-line{
+    border-left:1px solid black;
+    border-collapse: collapse;
+    border-width: thin;
+}
+.t-line{
+    border-top:1px solid black;
+    border-collapse: collapse;
+    border-width: thin;
+}
+.u-line{
+    text-decoration: underline;
+    font-weight:bold;
+}
+.r-text{
+    text-align: right;
+}
+.c-text{
+    text-align: center;
+}
+.l-text{
+    text-align: left;
+}
+.linespace{
+    padding: 0.8px 0px;
+}
+.tab{
+    padding: 0px 2px;
+}
+.bglight{
+    background: #ebebeb;
+    font-weight:bold;
+}
+.fonts{
+   font-size: 9px;
+}
+.top{
+    width: 100%; 
+    font-size: 16px; 
+  
+    background: #d9d9d9;
+}
+.myqr{
+    vertical-align: middle;
+    display: table-cell;
+    text-align: center; 
+}
+.logo{
+    vertical-align: middle;
+    display: table-cell;
+    text-align: center;
+    padding: 0px 2px 0px 0px;
+   }
+.directorsign{
+    margin-left: 50px;
+    background: #ffffff;
+    width: 50px;
+    height: 50px;
+   }
+.header{
+    display: table-cell;
+	padding: 5px;
+    font-size: 10px;
+    font-style: normal;
+    width:100%;
+}
+#watermark {
+    position: relative;
+    overflow: visible;
+  }
+#watermark p {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    opacity:0.3;
+    color: red;
+    font-size: 80px;
+    pointer-events: none;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+}
+div.t {                                                     /*Comman Table*/
+    background-color: #ffffff;
+    width: 100%;
+    border-collapse: collapse;
+    border-width: 1px 1px 1px 1px;
+  }
+  .divTable.t .divTableCell, .divTable.t .divTableHead {   /* Table/Cell/Head */
+    padding: 0px 1px;
+
+  }
+  .divTable.t .divTableBody .divTableCell {                /* Table/Body/Cell */
+    font-size: 10px;
+    color: #000000;
+  }
+  .row-span {
+    padding: 0px 1px; 
+    width: 100%;
+  }
+
+  .divTable{ display: table;  border-collapse: collapse; }
+  .divTableRow { display: table-row;  border-collapse: collapse; }
+  .divTableHeading { display: table-header-group; border-collapse: collapse;}
+  .divTableCell, .divTableHead { display: table-cell; border-collapse: collapse;}
+  .divTableHeading { display: table-header-group;}
+  .divTableFoot { display: table-footer-group;}
+  .divTableBody { display: table-row-group; border-collapse: collapse;}
+
+
+/* -----------------------------------------------------------------------------------------------------------------*/
+
+
+
+/* for Underline 
+.U-row {
+	text-decoration: underline;
+}
+.divTableRow {
+	
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableCell, .divTableHead {
+	border: 1px solid #000000;
+	display: table-cell;
+	padding: 0px 2px;
+}
+
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
+}
+*/
+/* Logo-----
+padding: 0px 30px;
+margin-left: center;
+margin-right: center;
+margin-top: center;
+margin-bottom: center;
+    border: 1px solid #000000;
+
+header -----
+style="width: 25%; font-size: 10px;
+text-transform: uppercase; 
+text-decoration: none;
+ color: #003976;
+ letter-spacing: 0px;
+    word-spacing: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+
+.divTableCelllogo{
+    border: 1px solid #000000;
+	display: table-cell;
+	padding: 10px 10px;
+	
+	font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    color: #003976;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: uppercase;
+}
+*/
+
+/*Page Margin Border
+.print-format {
+    box-sizing: border-box;  
+    border: 1px solid black;
+    font-size: 12px;
+    background: white;
+    padding: 1px;
+}*/
+
+/* DivTable.com */
+
+/*__________________________________________________________________test CSS___________________________
+
+/*Data Value Format 
+.print-format .data-field {
+    margin-top: 0;
+    font-weight: bold;
+    margin-bottom: 0;
+    color: #000000;
+}
+/*Feild Value Format
+.print-format .value {
+    color: #000000;
+    line-height: 1;
+}
+
+/*Table Heading Format
+.print-format th {     
+    color: #000000;
+    background: #d9d9d9;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 10px;
+    border-bottom-width: 0.5px !important;
+}
+/*Table row and column border 
+.print-format .table-bordered td, .print-format .table-bordered th, .print-format .table-bordered{
+    border: 1px solid #000000;
+    font-size: 10px;
+    font-weight: bold;
+}
+.page-number{
+border-bottom: 1px solid #000000;
+}
+*/
+

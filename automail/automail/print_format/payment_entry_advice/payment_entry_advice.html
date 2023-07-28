@@ -1,0 +1,61 @@
+{%set gl = frappe.get_list(doctype="GL Entry",  fields=["account", "party_type", "party", "debit", "credit", "remarks"], filters={"voucher_type": doc.doctype, "voucher_no": doc.name}) %}
+{%set style             = "automail/templates/includes/style.css" %} 
+<style> {%- include style -%} </style>    
+{% set address = frappe.get_list(
+    'Address',
+    filters={
+    'is_your_company_address': '1',
+    'link_name': doc.company
+    },
+    fields=[
+    'idx',
+    'address_title',
+    'address_line1',
+    'address_line2',
+    'city',
+    'country',
+    'state',
+    'pincode',
+    'email_id',
+    'phone',
+    ],
+    )
+    %}                                
+
+{% set ans = frappe.db.get_value('Letter Head','Main_Letterhead','image') %}
+<div class="divTable t">  
+    <div class="divTableBody">
+        <div class="divTableRow">
+            <div class="divTableCell text-center"style="width:20%;">
+                <img class="logo" alt="Sample Latter Head" src="{{ans}}">
+            </div>
+
+            {% for address in address %}
+            {% if(address.lnik_name == doc.company ) %}{%endif%}
+            <div class="divTableRow">
+                <div class="divTableCell col-xs-12 c-text" style="font-size: 12px; padding:0px;">
+                    <strong><h4>{{doc.company}}</h4></strong>
+                </div>
+            </div>
+            <div class="divTableRow">
+                <div class="col-xs-12" style="font-size: 9px; padding: 0px 5px;">{{address.address_line1 or ''}}, {{address.address_line2 or ''}}</div>
+            </div>
+            <div class="divTableRow">
+                <div class="col-xs-12" style="font-size: 9px; padding:0px 5px;">{{address.city or ''}}, {{ address.state or ''}}-{{ address.pincode or '' }}, {{address.country or ''}}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div> 
+</div>   <br><br>
+<hr>
+<div class="top"><p style=" text-align:center;">PAYMENT ADVICE</strong></p></div>
+<div>
+    <div class="col-xs-6 text-left"> <strong>Doc No: </strong>{{ doc.name }} </div>
+    <div class="col-xs-6 text-right"> <strong >Date: </strong>{{ doc.get_formatted('posting_date') }}</div>
+</div>
+<div>
+    <div class="col-xs-6 text-left"> <strong>Party Name: </strong>{{ doc.party_name }} </div>
+</div>
+<div>
+    <div class="col-xs-6 text-left"> <strong>Email ID: </strong>{{ doc.contact_email }} </div>
+</div>
