@@ -38,15 +38,15 @@
                 </div>
             </div>
             <div class="divTableRow">
-                <div class="col-xs-12" style="font-size: 9px; padding: 0px 5px;">{{address.address_line1 or ''}}, {{address.address_line2 or ''}}</div>
+                <div class="col-xs-12" style="font-size: 10px; padding: 0px 5px;">{{address.address_line1 or ''}}, {{address.address_line2 or ''}}</div>
             </div>
             <div class="divTableRow">
-                <div class="col-xs-12" style="font-size: 9px; padding:0px 5px;">{{address.city or ''}}, {{ address.state or ''}}-{{ address.pincode or '' }}, {{address.country or ''}}</div>
+                <div class="col-xs-12" style="font-size: 10px; padding:0px 5px;">{{address.city or ''}}, {{ address.state or ''}}-{{ address.pincode or '' }}, {{address.country or ''}}</div>
             </div>
             {% endfor %}
         </div>
     </div> 
-</div>   <br><br>
+</div>   <br>
 <hr>
 <div class="top"><p style=" text-align:center;">PAYMENT ADVICE</strong></p></div>
 <div>
@@ -59,3 +59,67 @@
 <div>
     <div class="col-xs-6 text-left"> <strong>Email ID: </strong>{{ doc.contact_email }} </div>
 </div>
+<br><br>
+<b>Payment References</b>
+<div class="divTable t line">
+    <div class="divTableBody">
+        <div class="divTableRow bglight">
+            <div class="divTableCell text-center r-line" style="width: 25%;"><strong>Inv No.</strong></div>
+            <div class="divTableCell text-center r-line" style="width: 10%;"><strong>Due Date</strong></div>
+            <div class="divTableCell text-center r-line" style="width:25%;"><strong>Supplier Invoice No</strong></div>
+            <div class="divTableCell text-center r-line" style="width:20%;"><strong>Grand Total</strong></div>
+            <div class="divTableCell text-center " style="width:20%;"><strong>Outstanding</strong></div>
+        </div>
+        {%- for ref in doc.references -%}
+        <div class="divTableRow" style="border-top:1px solid black; ">
+                <div class="divTableCell text-center" style="width: 2%;">{{ref.reference_name}}</div>
+                <div class="divTableCell r-line l-line">{{ref.due_date}}</div>
+                <div class="divTableCell text-right">{{ref.bill_no}}</div>
+                <div class="divTableCell text-right r-line l-line">{{ref.get_formatted("total_amount", doc) }}</div>
+                <div class="divTableCell text-right">{{ref.get_formatted("outstanding_amount", doc) }}</div>
+        </div>
+        {%endfor%}
+    </div>
+</div><br><br>
+<b>Payment Deductions or Loss</b>
+<div class="divTable t line">
+    <div class="divTableBody">
+        <div class="divTableRow bglight">
+            <div class="divTableCell text-center r-line" style="width: 25%;"><strong>GL Acount</strong></div>
+            <div class="divTableCell text-center r-line" style="width: 10%;"><strong>Cost Center</strong></div>
+            <div class="divTableCell text-center r-line" style="width:25%;"><strong>Amount</strong></div>
+            <div class="divTableCell text-center r-line" style="width:20%;"><strong>Describ</strong></div>
+        </div>
+        {%- for ref in doc.deductions -%}
+        <div class="divTableRow" style="border-top:1px solid black; ">
+                <div class="divTableCell text-center" style="width: 2%;">{{ref.account}}</div>
+                <div class="divTableCell r-line l-line">{{ref.cost_center}}</div>
+                <div class="divTableCell text-right r-line l-line">{{ref.get_formatted("amount", doc) }}</div>
+                <div class="divTableCell text-right">{{ref.description}}</div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+<br><br>
+<div>
+    <div class="col-xs-6 text-left"> <strong>Total Paid Amount: </strong>{{ doc.paid_amount }} </div>
+</div>
+
+<br><br>
+<div>
+    <b>Write off</b><br>
+    <div class="col-xs-4 text-left"> <strong>Total Allocated Amount : </strong>{{ doc.total_allocated_amount }} </div>
+    <div class="col-xs-4 text-left"> <strong>Unallocated Amount: </strong>{{ doc.unallocated_amount }} </div>
+    <div class="col-xs-4 text-left"> <strong>Difference Amount: </strong>{{ doc.difference_amount }} </div>
+</div>
+<div><br>
+    <b>Cheque/Reference No</b><br>
+    <div class="col-xs-6 text-left"> <strong>Reference No: </strong>{{ doc.reference_no }} </div>
+    <div class="col-xs-6 text-left"> <strong>Reference Date: </strong>{{ doc.reference_date }} </div>
+</div>
+<div><br>
+    <b>Remarks</b><br>
+    <div class="col-xs-6 text-left"> <strong>Reference No: </strong>{{ doc.remarks }} </div>
+</div>
+
+<!-- End -->
